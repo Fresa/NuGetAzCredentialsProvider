@@ -1,4 +1,4 @@
-namespace NuGetAzCredentialsProvider.ComponentTests.Fixtures;
+namespace NuGetAzCredentialsProvider.IntegrationTests.Fixtures;
 
 // Writes a stand-in `az` into a temp directory that answers any `account get-access-token` with a
 // fixed token, so a test exercises the token path without a real Azure CLI login. Put its directory

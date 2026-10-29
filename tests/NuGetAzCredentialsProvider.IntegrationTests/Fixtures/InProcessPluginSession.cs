@@ -1,7 +1,7 @@
 using System.Text;
 using NuGet.Protocol.Plugins;
 
-namespace NuGetAzCredentialsProvider.ComponentTests.Fixtures;
+namespace NuGetAzCredentialsProvider.IntegrationTests.Fixtures;
 
 internal sealed class InProcessPluginSession : IAsyncDisposable
 {

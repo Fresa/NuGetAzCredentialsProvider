@@ -1,7 +1,7 @@
 using System.Runtime.InteropServices;
 using Microsoft.Win32.SafeHandles;
 
-namespace NuGetAzCredentialsProvider.ComponentTests.Fixtures;
+namespace NuGetAzCredentialsProvider.IntegrationTests.Fixtures;
 
 internal sealed partial class StandardStreamRedirection : IDisposable
 {

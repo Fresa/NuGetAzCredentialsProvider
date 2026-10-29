@@ -1,8 +1,8 @@
 using AwesomeAssertions;
 using NuGet.Protocol.Plugins;
-using NuGetAzCredentialsProvider.ComponentTests.Fixtures;
+using NuGetAzCredentialsProvider.IntegrationTests.Fixtures;
 
-namespace NuGetAzCredentialsProvider.ComponentTests;
+namespace NuGetAzCredentialsProvider.IntegrationTests;
 
 // The in-process session redirects the process's stdio and PATH, both global, so these tests must
 // not overlap with any other test.

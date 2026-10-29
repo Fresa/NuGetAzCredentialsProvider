@@ -1,4 +1,4 @@
-namespace NuGetAzCredentialsProvider.ComponentTests.Fixtures;
+namespace NuGetAzCredentialsProvider.IntegrationTests.Fixtures;
 
 internal sealed class TempDirectory : IDisposable
 {
