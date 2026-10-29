@@ -34,6 +34,9 @@ jobs:
     uses: Fresa/Library.Net.ContinuousDelivery/.github/workflows/release.yml@v1
     needs: test
     if: github.repository == 'Fresa/NuGetAzCredentialsProvider' && github.actor != 'dependabot[bot]'
+    permissions:
+      # Create release and tags
+      contents: write
     with:
       project_path: src/NuGetAzCredentialsProvider
       project_name: NuGetAzCredentialsProvider
