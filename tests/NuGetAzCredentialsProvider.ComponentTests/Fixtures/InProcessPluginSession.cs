@@ -55,15 +55,19 @@ internal sealed class InProcessPluginSession : IAsyncDisposable
 
     public async ValueTask DisposeAsync()
     {
-        await _toPluginWriter.DisposeAsync().ConfigureAwait(false);
-        try
-        {
-            await _pluginMain.WaitAsync(TimeSpan.FromSeconds(5)).ConfigureAwait(false);
-        }
-        catch (TimeoutException)
-        {
-        }
+        // Close is how NuGet ends a plugin
+        // https://learn.microsoft.com/en-us/nuget/reference/extensibility/nuget-cross-platform-plugins#protocol-messages-index
+        await _connection
+            .SendAsync(
+                MessageUtilities.Create(
+                    new UniqueIdGenerator().GenerateUniqueId(),
+                    MessageType.Request,
+                    MessageMethod.Close),
+                CancellationToken.None)
+            .ConfigureAwait(false);
+        await _pluginMain.WaitAsync(TimeSpan.FromSeconds(5)).ConfigureAwait(false);
 
+        await _toPluginWriter.DisposeAsync().ConfigureAwait(false);
         _connection.Dispose();
         _redirection.Dispose();
         if (_originalPath is not null)
